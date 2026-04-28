@@ -113,8 +113,12 @@ export default function Home() {
         </p>
 
         <a
-          href="tel:515-509-5282 or 515-4507051
-          className="bg-white text-black px-6 py-3 rounded-xl font-semibold"
+          <a
+  href="tel:5155095282"
+  className="bg-white text-black px-6 py-3 rounded-xl font-semibold"
+>
+  Call True Cleanup
+</a>
         >
           Call True Cleanup
         </a>
