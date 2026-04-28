@@ -22,7 +22,7 @@ export default function Home() {
           </a>
 
           <a
-            href="sms:515-509-5282 or 515-450-7051"
+            href="sms:515-509-5282"
             className="bg-gray-200 px-6 py-3 rounded-xl font-semibold"
           >
             Text for Quote
@@ -113,7 +113,6 @@ export default function Home() {
         </p>
 
         <a
-          <a
   href="tel:5155095282"
   className="bg-white text-black px-6 py-3 rounded-xl font-semibold"
 >
