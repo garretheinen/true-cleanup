@@ -53,10 +53,13 @@ export default function Home() {
 
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-10">What We Remove</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {["Furniture", "Appliances", "Garage Cleanouts", "Yard Waste", "Rental Property Junk", "Office & Business Items"].map((item) => (
-            <div key={item} className="rounded-2xl border bg-white p-6 text-center shadow-sm hover:shadow-md transition">{item}</div>
-          ))}
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 text-center text-base md:text-lg text-gray-700">
+          <div>🛋 Furniture</div>
+          <div>🧊 Appliances</div>
+          <div>🏠 Garage Cleanouts</div>
+          <div>🌿 Yard Waste</div>
+          <div>🏢 Office Junk</div>
+          <div>🏚 Rental Cleanouts</div>
         </div>
       </section>
 
