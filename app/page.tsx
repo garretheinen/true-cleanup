@@ -118,14 +118,12 @@ export default function Home() {
 >
   Call True Cleanup
 </a>
-          Call True Cleanup
-        </a>
 
-        <p className="text-sm text-gray-400 mt-6">
-          Serving Des Moines & surrounding areas
-        </p>
-      </section>
+      <p className="text-sm text-gray-400 mt-6">
+        Serving Des Moines & surrounding areas
+      </p>
+    </section>
 
-    </main>
+  </main>
   )
 }
