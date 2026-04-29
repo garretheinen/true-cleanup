@@ -35,7 +35,10 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a href="#quote" className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold shadow-sm transition">Get Free Quote</a>
-          <a href="tel:5155095282" className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-2xl font-semibold shadow-sm transition">Call Now</a>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a href="tel:5155095282" className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold shadow-sm transition">Call Garret</a>
+            <a href="tel:5154507051" className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold shadow-sm transition">Call Chandler</a>
+          </div>
         </div>
       </section>
 
