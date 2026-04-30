@@ -1,10 +1,28 @@
-import type { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
-    const { name, phone, message } = await req.json();
+    const body = await req.json();
 
+    // ✅ SEND TO EXCEL (ZAPIER WEBHOOK)
+    try {
+      await fetch("https://hooks.zapier.com/hooks/catch/27410295/uvkz23u/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: body.name,
+          phone: body.phone,
+          message: body.message,
+          time: new Date().toISOString(),
+        }),
+      });
+    } catch (err) {
+      console.log("Webhook failed:", err);
+    }
+
+    // ✅ EMAIL SETUP
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -17,18 +35,17 @@ export async function POST(req: NextRequest) {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "New Junk Removal Lead",
-      text: `Name: ${name}\nPhone: ${phone}\nMessage: ${message}`,
+      text: `
+Name: ${body.name}
+Phone: ${body.phone}
+Message: ${body.message}
+      `,
     });
 
     return Response.json({ success: true });
-  } catch (error: any) {
-    console.error("EMAIL ERROR:", error);
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: error?.message || "Unknown error",
-      }),
-      { status: 500 }
-    );
+
+  } catch (error) {
+    console.error("API ERROR:", error);
+    return new Response("Failed", { status: 500 });
   }
 }
