@@ -2,25 +2,27 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const formData = await req.formData();
 
-    // ✅ SEND TO EXCEL (ZAPIER WEBHOOK)
-    try {
-      await fetch("https://hooks.zapier.com/hooks/catch/27410295/uvkz23u/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: body.name,
-          phone: body.phone,
-          message: body.message,
-          time: new Date().toISOString(),
-        }),
-      });
-    } catch (err) {
-      console.log("Webhook failed:", err);
-    }
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const message = formData.get("message") as string;
+
+    const files = formData.getAll("photos") as File[];
+
+    // ✅ SEND TO ZAPIER
+    await fetch("https://hooks.zapier.com/hooks/catch/27410295/uvkz23u/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        message,
+        time: new Date().toISOString(),
+      }),
+    });
 
     // ✅ EMAIL SETUP
     const transporter = nodemailer.createTransport({
@@ -31,21 +33,30 @@ export async function POST(req: Request) {
       },
     });
 
+    // ✅ ATTACH FILES
+    const attachments = await Promise.all(
+      files.map(async (file) => ({
+        filename: file.name,
+        content: Buffer.from(await file.arrayBuffer()),
+      }))
+    );
+
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "New Junk Removal Lead",
       text: `
-Name: ${body.name}
-Phone: ${body.phone}
-Message: ${body.message}
+Name: ${name}
+Phone: ${phone}
+Message: ${message}
       `,
+      attachments,
     });
 
     return Response.json({ success: true });
 
   } catch (error) {
-    console.error("API ERROR:", error);
+    console.error(error);
     return new Response("Failed", { status: 500 });
   }
 }

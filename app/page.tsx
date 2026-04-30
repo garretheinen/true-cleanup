@@ -10,18 +10,27 @@ export default function Home() {
     message: "",
   });
 
+  const [files, setFiles] = useState<FileList | null>(null);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
 
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("phone", form.phone);
+    formData.append("message", form.message);
+
+    if (files) {
+      Array.from(files).forEach((file) => {
+        formData.append("photos", file);
+      });
+    }
+
     const res = await fetch("/api/quote", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
+      body: formData,
     });
 
     setLoading(false);
@@ -29,6 +38,7 @@ export default function Home() {
     if (res.ok) {
       setSubmitted(true);
       setForm({ name: "", phone: "", message: "" });
+      setFiles(null);
     } else {
       alert("Something went wrong.");
     }
@@ -50,14 +60,11 @@ export default function Home() {
             width={900}
             height={220}
             className="w-full max-w-4xl h-auto"
-            priority
           />
         </div>
 
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          Professional junk removal for homes, rentals, garages, and businesses
-          across Des Moines and surrounding areas. Send us photos or request a
-          quote now. Fast response times and affordable haul-away service.
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+          Professional junk removal for homes, rentals, garages, and businesses. Send photos for faster quotes.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">
@@ -85,64 +92,47 @@ export default function Home() {
       </section>
 
       {/* TRUST BAR */}
-      <section className="px-6 py-8 text-center border-y bg-white">
-        <div className="max-w-5xl mx-auto text-sm md:text-base font-medium text-gray-700 flex flex-wrap justify-center gap-3 md:gap-5">
-          <span>✔ Same-Day Availability</span>
-          <span>•</span>
-          <span>✔ Locally Owned</span>
-          <span>•</span>
-          <span>✔ Upfront Pricing</span>
-          <span>•</span>
-          <span>✔ Fast Response</span>
+      <section className="px-6 py-8 text-center border-y">
+        <div className="flex flex-wrap justify-center gap-3 text-gray-700">
+          ✔ Locally Owned • ✔ Upfront Pricing • ✔ Fast Response
         </div>
       </section>
 
       {/* WHAT WE REMOVE */}
-      <section className="px-6 py-20 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-10">
-          What We Remove
-        </h2>
+      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-10">What We Remove</h2>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 text-center text-base md:text-lg text-gray-700">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
           <div>🛋 Furniture</div>
           <div>🧊 Appliances</div>
           <div>🏠 Garage Cleanouts</div>
           <div>🌿 Yard Waste</div>
           <div>🏢 Office Junk</div>
           <div>🏚 Rental Cleanouts</div>
+          <div>🧹 Job Site Cleanup</div>
         </div>
       </section>
 
       {/* QUOTE FORM */}
-      <section id="quote" className="px-6 py-20 bg-gray-50">
+      <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
         <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8 shadow-sm">
-          <h2 className="text-3xl font-bold text-center mb-3">
+
+          <h2 className="text-3xl font-bold text-center mb-6">
             Get a Free Quote
           </h2>
 
-          <p className="text-center text-gray-600 mb-8">
-            Fill this out and we’ll contact you fast.
-          </p>
-
           {submitted ? (
-            <div className="bg-lime-50 border border-lime-200 rounded-2xl p-6 text-center">
-              <div className="text-3xl mb-2">✅</div>
-              <h3 className="text-xl font-bold text-lime-600 mb-2">
-                Quote Submitted!
-              </h3>
-              <p className="text-gray-600">
-                We’ll contact you shortly.
-              </p>
+            <div className="text-center text-lime-600 font-semibold">
+              ✅ Quote submitted! We’ll contact you shortly.
             </div>
           ) : (
             <div className="space-y-4">
+
               <input
                 type="text"
                 placeholder="Your Name"
                 value={form.name}
-                onChange={(e) =>
-                  setForm({ ...form, name: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className="w-full border p-3 rounded-xl"
               />
 
@@ -150,19 +140,24 @@ export default function Home() {
                 type="tel"
                 placeholder="Phone Number"
                 value={form.phone}
-                onChange={(e) =>
-                  setForm({ ...form, phone: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className="w-full border p-3 rounded-xl"
               />
 
               <textarea
                 placeholder="What needs removed?"
                 value={form.message}
-                onChange={(e) =>
-                  setForm({ ...form, message: e.target.value })
-                }
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
                 rows={4}
+                className="w-full border p-3 rounded-xl"
+              />
+
+              {/* PHOTO UPLOAD */}
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={(e) => setFiles(e.target.files)}
                 className="w-full border p-3 rounded-xl"
               />
 
@@ -174,10 +169,10 @@ export default function Home() {
                 {loading ? "Sending..." : "Send Quote Request"}
               </button>
 
-              {/* SMS CONSENT */}
               <p className="text-xs text-gray-500 text-center">
-                By submitting this form, you agree to be contacted by True Cleanout via phone, text, or email. Message and data rates may apply.
+                By submitting this form, you agree to be contacted via phone, text, or email. Message and data rates may apply.
               </p>
+
             </div>
           )}
         </div>
