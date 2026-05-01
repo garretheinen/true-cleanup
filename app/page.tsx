@@ -63,8 +63,14 @@ export default function Home() {
           />
         </div>
 
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-          Professional junk removal for homes, rentals, garages, and businesses. Send photos for faster quotes.
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+          Professional junk removal for homes, rentals, garages, and businesses.
+          Send photos for faster quotes.
+        </p>
+
+        {/* MINIMUM PRICE */}
+        <p className="text-sm font-semibold text-gray-700 mb-8">
+          Minimum pickup: $200
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">
@@ -79,14 +85,14 @@ export default function Home() {
             href="tel:5155095282"
             className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold"
           >
-            Call Garret
+            Call (515) 509-5282
           </a>
 
           <a
             href="tel:5154507051"
             className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold"
           >
-            Call Chandler
+            Call (515) 450-7051
           </a>
         </div>
       </section>
@@ -117,9 +123,13 @@ export default function Home() {
       <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
         <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8 shadow-sm">
 
-          <h2 className="text-3xl font-bold text-center mb-6">
+          <h2 className="text-3xl font-bold text-center mb-4">
             Get a Free Quote
           </h2>
+
+          <p className="text-center text-sm text-gray-500 mb-6">
+            Minimum pickup: $200
+          </p>
 
           {submitted ? (
             <div className="text-center text-lime-600 font-semibold">
