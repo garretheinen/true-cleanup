@@ -133,7 +133,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm">
           <span>✔ Available for jobs of all sizes</span>
           <span>✔ Labor and Dump Fees Included</span>
-          <span>test</span>
+          <span>✔ No hidden fees</span>
         </div>
 
         <div className="mt-8">
