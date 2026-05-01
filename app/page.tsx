@@ -74,25 +74,17 @@ export default function Home() {
           Minimum pickup: $200
         </p>
 
-        {/* CONTACT BUTTONS */}
+        {/* CONTACT */}
         <div className="flex flex-wrap justify-center gap-6">
 
           {/* NUMBER 1 */}
           <div className="flex flex-col items-center gap-2">
-            <p className="font-semibold text-gray-800">
-              (515) 509-5282
-            </p>
+            <p className="font-semibold text-gray-800">(515) 509-5282</p>
             <div className="flex gap-2">
-              <a
-                href="tel:5155095282"
-                className="bg-black text-white px-4 py-3 rounded-xl"
-              >
+              <a href="tel:5155095282" className="bg-black text-white px-4 py-3 rounded-xl">
                 Call
               </a>
-              <a
-                href="sms:5155095282?body=Hi, I need a junk removal quote."
-                className="bg-green-600 text-white px-4 py-3 rounded-xl"
-              >
+              <a href="sms:5155095282?body=Hi, I need a junk removal quote." className="bg-green-600 text-white px-4 py-3 rounded-xl">
                 Text
               </a>
             </div>
@@ -100,20 +92,12 @@ export default function Home() {
 
           {/* NUMBER 2 */}
           <div className="flex flex-col items-center gap-2">
-            <p className="font-semibold text-gray-800">
-              (515) 450-7051
-            </p>
+            <p className="font-semibold text-gray-800">(515) 450-7051</p>
             <div className="flex gap-2">
-              <a
-                href="tel:5154507051"
-                className="bg-black text-white px-4 py-3 rounded-xl"
-              >
+              <a href="tel:5154507051" className="bg-black text-white px-4 py-3 rounded-xl">
                 Call
               </a>
-              <a
-                href="sms:5154507051?body=Hi, I need a junk removal quote."
-                className="bg-green-600 text-white px-4 py-3 rounded-xl"
-              >
+              <a href="sms:5154507051?body=Hi, I need a junk removal quote." className="bg-green-600 text-white px-4 py-3 rounded-xl">
                 Text
               </a>
             </div>
@@ -157,10 +141,7 @@ export default function Home() {
         </div>
 
         <div className="mt-8">
-          <a
-            href="#quote"
-            className="bg-lime-500 text-white px-8 py-3 rounded-xl font-semibold"
-          >
+          <a href="#quote" className="bg-lime-500 text-white px-8 py-3 rounded-xl font-semibold">
             Get Quote
           </a>
         </div>
@@ -250,8 +231,19 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto border-t py-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} True Cleanout
+      <footer className="mt-auto border-t py-6 text-center text-sm text-gray-500 bg-white">
+        <div className="mb-2">
+          © {new Date().getFullYear()} True Cleanout. All rights reserved.
+        </div>
+
+        <div className="flex justify-center gap-4">
+          <a href="/privacy-policy" className="hover:underline">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="hover:underline">
+            Terms of Service
+          </a>
+        </div>
       </footer>
 
     </main>
