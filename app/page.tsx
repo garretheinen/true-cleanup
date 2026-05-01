@@ -77,10 +77,10 @@ export default function Home() {
         {/* CONTACT BUTTONS */}
         <div className="flex flex-wrap justify-center gap-6">
 
-          {/* GARRET */}
+          {/* NUMBER 1 */}
           <div className="flex flex-col items-center gap-2">
             <p className="font-semibold text-gray-800">
-              Garret — (515) 509-5282
+              (515) 509-5282
             </p>
             <div className="flex gap-2">
               <a
@@ -90,7 +90,7 @@ export default function Home() {
                 Call
               </a>
               <a
-                href="sms:5155095282?body=Hi Garret, I need a junk removal quote."
+                href="sms:5155095282?body=Hi, I need a junk removal quote."
                 className="bg-green-600 text-white px-4 py-3 rounded-xl"
               >
                 Text
@@ -98,10 +98,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CHANDLER */}
+          {/* NUMBER 2 */}
           <div className="flex flex-col items-center gap-2">
             <p className="font-semibold text-gray-800">
-              Chandler — (515) 450-7051
+              (515) 450-7051
             </p>
             <div className="flex gap-2">
               <a
@@ -111,7 +111,7 @@ export default function Home() {
                 Call
               </a>
               <a
-                href="sms:5154507051?body=Hi Chandler, I need a junk removal quote."
+                href="sms:5154507051?body=Hi, I need a junk removal quote."
                 className="bg-green-600 text-white px-4 py-3 rounded-xl"
               >
                 Text
