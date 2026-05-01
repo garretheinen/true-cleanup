@@ -114,15 +114,14 @@ export default function Home() {
         </p>
 
         <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-          Most small jobs fall between $200–$400 depending on volume.
-          Larger cleanouts are priced based on how much space your items take up.
+          Every job is different, so pricing is based on how much space your items take up in the truck.
+          We’ll give you a clear, upfront quote before any work begins — no surprises.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm">
-          <span>✔ Small pickup loads</span>
           <span>✔ Labor included</span>
-          <span>✔ Fast service</span>
           <span>✔ No hidden fees</span>
+          <span>✔ Fast service</span>
         </div>
 
         <div className="mt-8">
@@ -193,7 +192,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* PHOTO UPLOAD */}
               <input
                 type="file"
                 multiple
