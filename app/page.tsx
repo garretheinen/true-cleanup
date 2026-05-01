@@ -74,28 +74,55 @@ export default function Home() {
           Minimum pickup: $200
         </p>
 
+        {/* BUTTONS */}
         <div className="flex flex-wrap justify-center gap-3">
-<a
-  href="#quote"
-  className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold"
->
-  Email
-</a>
-      
 
           <a
-            href="tel:5155095282"
-            className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold"
+            href="#quote"
+            className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold"
           >
-            Call (515) 509-5282
+            Get Free Quote
           </a>
 
           <a
-            href="tel:5154507051"
-            className="bg-black hover:bg-gray-800 text-white px-6 py-4 rounded-2xl font-semibold"
+            href="mailto:truecleanoutco@gmail.com?subject=Quote Request&body=Name:%0APhone:%0AWhat needs removed:"
+            className="bg-gray-200 hover:bg-gray-300 text-black px-6 py-4 rounded-2xl font-semibold"
           >
-            Call (515) 450-7051
+            Email Us
           </a>
+
+          {/* GARRET */}
+          <div className="flex gap-2">
+            <a
+              href="tel:5155095282"
+              className="bg-black text-white px-4 py-3 rounded-xl"
+            >
+              Call
+            </a>
+            <a
+              href="sms:5155095282?body=Hi, I need a junk removal quote."
+              className="bg-green-600 text-white px-4 py-3 rounded-xl"
+            >
+              Text
+            </a>
+          </div>
+
+          {/* CHANDLER */}
+          <div className="flex gap-2">
+            <a
+              href="tel:5154507051"
+              className="bg-black text-white px-4 py-3 rounded-xl"
+            >
+              Call
+            </a>
+            <a
+              href="sms:5154507051?body=Hi, I need a junk removal quote."
+              className="bg-green-600 text-white px-4 py-3 rounded-xl"
+            >
+              Text
+            </a>
+          </div>
+
         </div>
       </section>
 
@@ -106,7 +133,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRICING SECTION */}
+      {/* PRICING */}
       <section className="px-6 py-16 text-center bg-white">
         <h2 className="text-3xl font-bold mb-4">
           Simple, Upfront Pricing
@@ -137,7 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHAT WE REMOVE */}
+      {/* SERVICES */}
       <section className="px-6 py-20 max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-10">What We Remove</h2>
 
@@ -152,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* QUOTE FORM */}
+      {/* FORM */}
       <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
         <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8 shadow-sm">
 
@@ -172,7 +199,6 @@ export default function Home() {
             <div className="space-y-4">
 
               <input
-                type="text"
                 placeholder="Your Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -180,7 +206,6 @@ export default function Home() {
               />
 
               <input
-                type="tel"
                 placeholder="Phone Number"
                 value={form.phone}
                 onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -199,8 +224,8 @@ export default function Home() {
                 placeholder="What needs removed?"
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                rows={4}
                 className="w-full border p-3 rounded-xl"
+                rows={4}
               />
 
               <input
@@ -213,14 +238,13 @@ export default function Home() {
 
               <button
                 onClick={handleSubmit}
-                disabled={loading}
                 className="w-full bg-lime-500 hover:bg-lime-600 text-white py-3 rounded-xl font-semibold"
               >
                 {loading ? "Sending..." : "Get Quote"}
               </button>
 
               <p className="text-xs text-gray-500 text-center">
-                By submitting this form, you agree to be contacted via phone, text, or email. Message and data rates may apply.
+                By submitting, you agree to be contacted via phone, text, or email.
               </p>
 
             </div>
@@ -229,19 +253,8 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto border-t py-6 text-center text-sm text-gray-500 bg-white">
-        <div className="mb-2">
-          © {new Date().getFullYear()} True Cleanout. All rights reserved.
-        </div>
-
-        <div className="flex justify-center gap-4">
-          <a href="/privacy-policy" className="hover:underline">
-            Privacy Policy
-          </a>
-          <a href="/terms" className="hover:underline">
-            Terms of Service
-          </a>
-        </div>
+      <footer className="mt-auto border-t py-6 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} True Cleanout
       </footer>
 
     </main>
