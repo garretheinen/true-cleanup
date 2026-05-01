@@ -74,16 +74,52 @@ export default function Home() {
           Minimum pickup: $200
         </p>
 
-        {/* BUTTONS */}
-        <div className="flex flex-wrap justify-center gap-3">
+        {/* CONTACT BUTTONS */}
+        <div className="flex flex-wrap justify-center gap-6">
 
-          <a
-            href="#quote"
-            className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold"
-          >
-            Get Free Quote
-          </a>
+          {/* GARRET */}
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-semibold text-gray-800">
+              Garret — (515) 509-5282
+            </p>
+            <div className="flex gap-2">
+              <a
+                href="tel:5155095282"
+                className="bg-black text-white px-4 py-3 rounded-xl"
+              >
+                Call
+              </a>
+              <a
+                href="sms:5155095282?body=Hi Garret, I need a junk removal quote."
+                className="bg-green-600 text-white px-4 py-3 rounded-xl"
+              >
+                Text
+              </a>
+            </div>
+          </div>
 
+          {/* CHANDLER */}
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-semibold text-gray-800">
+              Chandler — (515) 450-7051
+            </p>
+            <div className="flex gap-2">
+              <a
+                href="tel:5154507051"
+                className="bg-black text-white px-4 py-3 rounded-xl"
+              >
+                Call
+              </a>
+              <a
+                href="sms:5154507051?body=Hi Chandler, I need a junk removal quote."
+                className="bg-green-600 text-white px-4 py-3 rounded-xl"
+              >
+                Text
+              </a>
+            </div>
+          </div>
+
+          {/* EMAIL */}
           <a
             href="mailto:truecleanoutco@gmail.com?subject=Quote Request&body=Name:%0APhone:%0AWhat needs removed:"
             className="bg-gray-200 hover:bg-gray-300 text-black px-6 py-4 rounded-2xl font-semibold"
@@ -91,50 +127,16 @@ export default function Home() {
             Email Us
           </a>
 
-          {/* GARRET */}
-          <div className="flex gap-2">
-            <a
-              href="tel:5155095282"
-              className="bg-black text-white px-4 py-3 rounded-xl"
-            >
-              Call
-            </a>
-            <a
-              href="sms:5155095282?body=Hi, I need a junk removal quote."
-              className="bg-green-600 text-white px-4 py-3 rounded-xl"
-            >
-              Text
-            </a>
-          </div>
-
-          {/* CHANDLER */}
-          <div className="flex gap-2">
-            <a
-              href="tel:5154507051"
-              className="bg-black text-white px-4 py-3 rounded-xl"
-            >
-              Call
-            </a>
-            <a
-              href="sms:5154507051?body=Hi, I need a junk removal quote."
-              className="bg-green-600 text-white px-4 py-3 rounded-xl"
-            >
-              Text
-            </a>
-          </div>
-
         </div>
       </section>
 
       {/* TRUST BAR */}
       <section className="px-6 py-8 text-center border-y">
-        <div className="flex flex-wrap justify-center gap-3 text-gray-700">
-          ✔ Locally Owned • ✔ Upfront Pricing • ✔ Fast Response
-        </div>
+        ✔ Locally Owned • ✔ Upfront Pricing • ✔ Fast Response
       </section>
 
       {/* PRICING */}
-      <section className="px-6 py-16 text-center bg-white">
+      <section className="px-6 py-16 text-center">
         <h2 className="text-3xl font-bold mb-4">
           Simple, Upfront Pricing
         </h2>
@@ -157,7 +159,7 @@ export default function Home() {
         <div className="mt-8">
           <a
             href="#quote"
-            className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-3 rounded-xl font-semibold"
+            className="bg-lime-500 text-white px-8 py-3 rounded-xl font-semibold"
           >
             Get Quote
           </a>
@@ -165,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="px-6 py-20 max-w-6xl mx-auto text-center">
+      <section className="px-6 py-20 text-center">
         <h2 className="text-3xl font-bold mb-10">What We Remove</h2>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
@@ -181,7 +183,7 @@ export default function Home() {
 
       {/* FORM */}
       <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
-        <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8 shadow-sm">
+        <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8">
 
           <h2 className="text-3xl font-bold text-center mb-4">
             Get a Free Quote
@@ -225,7 +227,6 @@ export default function Home() {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="w-full border p-3 rounded-xl"
-                rows={4}
               />
 
               <input
@@ -238,14 +239,10 @@ export default function Home() {
 
               <button
                 onClick={handleSubmit}
-                className="w-full bg-lime-500 hover:bg-lime-600 text-white py-3 rounded-xl font-semibold"
+                className="w-full bg-lime-500 text-white py-3 rounded-xl"
               >
                 {loading ? "Sending..." : "Get Quote"}
               </button>
-
-              <p className="text-xs text-gray-500 text-center">
-                By submitting, you agree to be contacted via phone, text, or email.
-              </p>
 
             </div>
           )}
