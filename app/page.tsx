@@ -7,6 +7,7 @@ export default function Home() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
+    email: "",
     message: "",
   });
 
@@ -20,6 +21,7 @@ export default function Home() {
     const formData = new FormData();
     formData.append("name", form.name);
     formData.append("phone", form.phone);
+    formData.append("email", form.email);
     formData.append("message", form.message);
 
     if (files) {
@@ -37,7 +39,7 @@ export default function Home() {
 
     if (res.ok) {
       setSubmitted(true);
-      setForm({ name: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", email: "", message: "" });
       setFiles(null);
     } else {
       alert("Something went wrong.");
@@ -119,9 +121,9 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm">
+          <span>✔ Available for jobs of all sizes</span>
           <span>✔ Labor included</span>
           <span>✔ No hidden fees</span>
-          <span>✔ Fast service</span>
         </div>
 
         <div className="mt-8">
@@ -129,7 +131,7 @@ export default function Home() {
             href="#quote"
             className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-3 rounded-xl font-semibold"
           >
-            Get Exact Quote
+            Get Quote
           </a>
         </div>
       </section>
@@ -184,6 +186,14 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
+              <input
+                type="email"
+                placeholder="Email (optional)"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full border p-3 rounded-xl"
+              />
+
               <textarea
                 placeholder="What needs removed?"
                 value={form.message}
@@ -205,7 +215,7 @@ export default function Home() {
                 disabled={loading}
                 className="w-full bg-lime-500 hover:bg-lime-600 text-white py-3 rounded-xl font-semibold"
               >
-                {loading ? "Sending..." : "Send Quote Request"}
+                {loading ? "Sending..." : "Get Quote"}
               </button>
 
               <p className="text-xs text-gray-500 text-center">
