@@ -75,12 +75,13 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">
-          <a
-            href="#quote"
-            className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold"
-          >
-            Get Free Quote
-          </a>
+<a
+  href="#quote"
+  className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-4 rounded-2xl font-semibold"
+>
+  Email
+</a>
+      
 
           <a
             href="tel:5155095282"
