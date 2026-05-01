@@ -65,13 +65,9 @@ export default function Home() {
           />
         </div>
 
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Professional junk removal for homes, rentals, garages, and businesses.
           Send photos for faster quotes.
-        </p>
-
-        <p className="text-sm font-semibold text-gray-700 mb-8">
-          Minimum pickup: $200
         </p>
 
         {/* CONTACT */}
@@ -166,13 +162,9 @@ export default function Home() {
       <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
         <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8">
 
-          <h2 className="text-3xl font-bold text-center mb-4">
+          <h2 className="text-3xl font-bold text-center mb-6">
             Get a Free Quote
           </h2>
-
-          <p className="text-center text-sm text-gray-500 mb-6">
-            Minimum pickup: $200
-          </p>
 
           {submitted ? (
             <div className="text-center text-lime-600 font-semibold">
