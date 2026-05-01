@@ -68,7 +68,6 @@ export default function Home() {
           Send photos for faster quotes.
         </p>
 
-        {/* MINIMUM PRICE */}
         <p className="text-sm font-semibold text-gray-700 mb-8">
           Minimum pickup: $200
         </p>
@@ -101,6 +100,38 @@ export default function Home() {
       <section className="px-6 py-8 text-center border-y">
         <div className="flex flex-wrap justify-center gap-3 text-gray-700">
           ✔ Locally Owned • ✔ Upfront Pricing • ✔ Fast Response
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section className="px-6 py-16 text-center bg-white">
+        <h2 className="text-3xl font-bold mb-4">
+          Simple, Upfront Pricing
+        </h2>
+
+        <p className="text-xl font-semibold text-lime-600 mb-4">
+          Starting at $200
+        </p>
+
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+          Most small jobs fall between $200–$400 depending on volume.
+          Larger cleanouts are priced based on how much space your items take up.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm">
+          <span>✔ Small pickup loads</span>
+          <span>✔ Labor included</span>
+          <span>✔ Fast service</span>
+          <span>✔ No hidden fees</span>
+        </div>
+
+        <div className="mt-8">
+          <a
+            href="#quote"
+            className="bg-lime-500 hover:bg-lime-600 text-white px-8 py-3 rounded-xl font-semibold"
+          >
+            Get Exact Quote
+          </a>
         </div>
       </section>
 
