@@ -7,7 +7,7 @@ export default function Home() {
   const [form, setForm] = useState({
     name: "",
     phone: "",
-    email: "", // ✅ email state
+    email: "",
     message: "",
   });
 
@@ -21,7 +21,7 @@ export default function Home() {
     const formData = new FormData();
     formData.append("name", form.name);
     formData.append("phone", form.phone);
-    formData.append("email", form.email); // ✅ IMPORTANT (this is what sends it)
+    formData.append("email", form.email);
     formData.append("message", form.message);
 
     if (files) {
@@ -49,7 +49,103 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col bg-white text-gray-900">
 
-      {/* FORM SECTION ONLY SHOWN (rest unchanged) */}
+      {/* HERO */}
+      <section className="px-6 py-20 bg-gradient-to-b from-lime-50 to-white text-center">
+        <p className="text-lime-600 font-semibold mb-4">
+          Serving Des Moines & Surrounding Areas
+        </p>
+
+        <div className="flex justify-center mb-8">
+          <Image
+            src="/Long Logo.png"
+            alt="True Cleanout"
+            width={900}
+            height={220}
+            className="w-full max-w-4xl h-auto"
+          />
+        </div>
+
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+          Professional junk removal for homes, rentals, garages, and businesses.
+          Send photos for faster quotes.
+        </p>
+
+        {/* CONTACT */}
+        <div className="flex flex-wrap justify-center gap-6">
+
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-semibold text-gray-800">(515) 509-5282</p>
+            <div className="flex gap-2">
+              <a href="tel:5155095282" className="bg-black text-white px-4 py-3 rounded-xl">Call</a>
+              <a href="sms:5155095282?body=Hi, I need a junk removal quote." className="bg-green-600 text-white px-4 py-3 rounded-xl">Text</a>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-2">
+            <p className="font-semibold text-gray-800">(515) 450-7051</p>
+            <div className="flex gap-2">
+              <a href="tel:5154507051" className="bg-black text-white px-4 py-3 rounded-xl">Call</a>
+              <a href="sms:5154507051?body=Hi, I need a junk removal quote." className="bg-green-600 text-white px-4 py-3 rounded-xl">Text</a>
+            </div>
+          </div>
+
+          <a
+            href="mailto:truecleanoutco@gmail.com?subject=Quote Request&body=Name:%0APhone:%0AWhat needs removed:"
+            className="bg-gray-200 hover:bg-gray-300 text-black px-6 py-4 rounded-2xl font-semibold"
+          >
+            Email Us
+          </a>
+
+        </div>
+      </section>
+
+      {/* TRUST BAR */}
+      <section className="px-6 py-8 text-center border-y">
+        ✔ Locally Owned • ✔ Upfront Pricing • ✔ Fast Response
+      </section>
+
+      {/* PRICING */}
+      <section className="px-6 py-16 text-center">
+        <h2 className="text-3xl font-bold mb-4">Simple, Upfront Pricing</h2>
+
+        <p className="text-xl font-semibold text-lime-600 mb-4">
+          Starting at $200
+        </p>
+
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
+          Every job is different, so pricing is based on how much space your items take up in the truck.
+          We’ll give you a clear, upfront quote before any work begins — no surprises.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4 text-gray-700 text-sm">
+          <span>✔ Available for jobs of all sizes</span>
+          <span>✔ Labor and Dump Fees Included</span>
+          <span>✔ No Hidden Fees</span>
+        </div>
+
+        <div className="mt-8">
+          <a href="#quote" className="bg-lime-500 text-white px-8 py-3 rounded-xl font-semibold">
+            Get Quote
+          </a>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="px-6 py-20 text-center">
+        <h2 className="text-3xl font-bold mb-10">What We Remove</h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
+          <div>🛋 Furniture</div>
+          <div>🧊 Appliances</div>
+          <div>🏠 Garage Cleanouts</div>
+          <div>🌿 Yard Waste</div>
+          <div>🏢 Office Junk</div>
+          <div>🏚 Rental Cleanouts</div>
+          <div>🧹 Job Site Cleanup</div>
+        </div>
+      </section>
+
+      {/* FORM */}
       <section id="quote" className="px-6 py-20 bg-gray-50 flex-grow">
         <div className="max-w-2xl mx-auto bg-white border rounded-3xl p-8">
 
@@ -64,7 +160,6 @@ export default function Home() {
           ) : (
             <div className="space-y-4">
 
-              {/* NAME */}
               <input
                 placeholder="Your Name"
                 value={form.name}
@@ -72,7 +167,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* PHONE */}
               <input
                 placeholder="Phone Number"
                 value={form.phone}
@@ -80,7 +174,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* EMAIL (YOUR CODE - CORRECT) */}
               <input
                 type="email"
                 name="email"
@@ -90,7 +183,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* MESSAGE */}
               <textarea
                 placeholder="What needs removed?"
                 value={form.message}
@@ -98,7 +190,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* FILE UPLOAD */}
               <input
                 type="file"
                 multiple
@@ -107,7 +198,6 @@ export default function Home() {
                 className="w-full border p-3 rounded-xl"
               />
 
-              {/* SUBMIT */}
               <button
                 onClick={handleSubmit}
                 className="w-full bg-lime-500 text-white py-3 rounded-xl"
@@ -119,6 +209,17 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="mt-auto border-t py-6 text-center text-sm text-gray-500 bg-white">
+        <div className="mb-2">
+          © {new Date().getFullYear()} True Cleanout. All rights reserved.
+        </div>
+        <div className="flex justify-center gap-4">
+          <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
+          <a href="/terms" className="hover:underline">Terms of Service</a>
+        </div>
+      </footer>
 
     </main>
   );
