@@ -188,11 +188,12 @@ export default function Home() {
               />
 
               <input
-                type="email"
-                placeholder="Email (optional)"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full border p-3 rounded-xl"
+                 type="email"
+  name="email"
+  placeholder="Email (optional)"
+  value={form.email}
+  onChange={(e) => setForm({ ...form, email: e.target.value })}
+  className="w-full border p-3 rounded-xl"
               />
 
               <textarea
