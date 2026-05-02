@@ -6,6 +6,7 @@ export async function POST(req: Request) {
 
     const name = formData.get("name") as string;
     const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string; // ✅ added
     const message = formData.get("message") as string;
 
     const files = formData.getAll("photos") as File[];
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         name,
         phone,
+        email, // ✅ added
         message,
         time: new Date().toISOString(),
       }),
@@ -48,6 +50,7 @@ export async function POST(req: Request) {
       text: `
 Name: ${name}
 Phone: ${phone}
+Email: ${email}
 Message: ${message}
       `,
       attachments,
